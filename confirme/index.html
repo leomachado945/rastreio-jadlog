@@ -712,7 +712,7 @@
           loadingOverlay.style.display = 'none';
         }, 500);
 
-        // Auto scroll suave para o card de informações
+        // Auto scroll suave para o card de informações (2cm a mais para baixo)
         setTimeout(() => {
           const infoCard = document.querySelector('.info-card');
           if (infoCard) {
@@ -721,6 +721,13 @@
               block: 'center',
               inline: 'nearest'
             });
+            // Adiciona scroll extra de 2cm (~75px) para baixo
+            setTimeout(() => {
+              window.scrollBy({ 
+                top: 75, 
+                behavior: 'smooth' 
+              });
+            }, 300);
           }
         }, 600);
       }, 1500); // 1.5 segundos de loading
