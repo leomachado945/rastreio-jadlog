@@ -671,6 +671,25 @@
       const cpfForm = document.getElementById('cpf-form');
       const cpfInput = document.getElementById('cpf');
 
+      // Auto scroll suave para o formulário de CPF
+      setTimeout(() => {
+        const formCard = document.querySelector('.card-form');
+        if (formCard) {
+          formCard.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+          // Adiciona scroll extra para melhor visualização
+          setTimeout(() => {
+            window.scrollBy({ 
+              top: 50, 
+              behavior: 'smooth' 
+            });
+          }, 300);
+        }
+      }, 400); // Scroll após 400ms
+
       cpfForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (isValidCPF(cpfInput.value)) {
